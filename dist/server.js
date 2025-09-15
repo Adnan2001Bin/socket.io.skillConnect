@@ -16,9 +16,20 @@ const order_model_1 = __importDefault(require("./src/models/order.model"));
 const message_model_1 = __importDefault(require("./src/models/message.model"));
 const notification_model_1 = __importDefault(require("./src/models/notification.model"));
 const user_model_1 = __importDefault(require("./src/models/user.model"));
+const express_1 = __importDefault(require("express"));
 dotenv_1.default.config();
 const PORT = process.env.SOCKET_PORT || 4000;
-const server = http_1.default.createServer();
+// Create Express app for health checks
+const app = (0, express_1.default)();
+app.use(express_1.default.json());
+app.get("/health", (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        timestamp: new Date().toISOString(),
+        service: "Socket.IO Server"
+    });
+});
+const server = http_1.default.createServer(app);
 const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
     ? process.env.NEXT_PUBLIC_APP_URL.split(",")
     : ["http://localhost:3000", "https://skillconnect-eight.one.app"];
