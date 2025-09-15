@@ -19,7 +19,7 @@ const PORT = process.env.SOCKET_PORT || 4000;
 const server = http.createServer();
 const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
   ? process.env.NEXT_PUBLIC_APP_URL.split(",")
-  : ["http://localhost:3000"];
+  : ["http://localhost:3000" , "https://skillconnect-eight.one.app"];
 
 const io = new Server(server, {
   cors: {
