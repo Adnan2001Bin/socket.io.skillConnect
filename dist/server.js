@@ -21,24 +21,6 @@ dotenv_1.default.config();
 const PORT = process.env.SOCKET_PORT || 4000;
 // Create Express app for health checks
 const app = (0, express_1.default)();
-// CORS configuration
-const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
-    ? process.env.NEXT_PUBLIC_APP_URL.split(",")
-    : ["http://localhost:3000", "https://skillconnect-one.vercel.app"];
-// Add CORS middleware
-app.use((req, res, next) => {
-    const origin = req.headers.origin;
-    if (origin && allowedOrigins.includes(origin)) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    }
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-    if (req.method === 'OPTIONS') {
-        return res.sendStatus(200);
-    }
-    next();
-});
 app.use(express_1.default.json());
 app.get("/health", (req, res) => {
     res.status(200).json({
@@ -48,14 +30,15 @@ app.get("/health", (req, res) => {
     });
 });
 const server = http_1.default.createServer(app);
+const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
+    ? process.env.NEXT_PUBLIC_APP_URL.split(",")
+    : ["http://localhost:3000", "https://skillconnect-one.vercel.app"];
 const io = new socket_io_1.Server(server, {
     cors: {
         origin: allowedOrigins,
-        methods: ["GET", "POST", "OPTIONS"],
+        methods: ["GET", "POST"],
         credentials: true,
-        allowedHeaders: ["Content-Type", "Authorization"],
     },
-    transports: ["websocket", "polling"],
 });
 io.use(auth_1.authMiddleware);
 async function getTalentDashboardData(talentId) {
