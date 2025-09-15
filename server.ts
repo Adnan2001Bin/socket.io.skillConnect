@@ -32,7 +32,7 @@ app.get("/health", (req, res) => {
 const server = http.createServer(app);
 const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
   ? process.env.NEXT_PUBLIC_APP_URL.split(",")
-  : ["http://localhost:3000", "https://skillconnect-one.app" , "https://socket-io-skillconnect.onrender.com"];
+  : ["http://localhost:3000", "https://skillconnect-one.vercel.app" , "https://socket-io-skillconnect.onrender.com"];
 
 const io = new Server(server, {
   cors: {
