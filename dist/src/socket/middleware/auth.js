@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.authMiddleware = void 0;
-const user_model_1 = __importDefault(require("@/src/models/user.model"));
+const user_model_1 = __importDefault(require("../../models/user.model"));
 const authMiddleware = async (socket, next) => {
     try {
         const userId = socket.handshake.auth.userId;
