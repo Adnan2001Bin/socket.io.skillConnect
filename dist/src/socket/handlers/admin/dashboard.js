@@ -4,10 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDashboardData = void 0;
-const order_model_1 = __importDefault(require("@/src/models/order.model"));
-const projects_model_1 = __importDefault(require("@/src/models/projects.model"));
-const user_model_1 = __importDefault(require("@/src/models/user.model"));
-const proposal_model_1 = __importDefault(require("@/src/models/proposal.model"));
+const order_model_1 = __importDefault(require("../../../models/order.model"));
+const projects_model_1 = __importDefault(require("../../../models/projects.model"));
+const user_model_1 = __importDefault(require("../../../models/user.model"));
+const proposal_model_1 = __importDefault(require("../../../models/proposal.model"));
 const getDashboardData = async (timeRange) => {
     var _a, _b;
     const now = new Date();

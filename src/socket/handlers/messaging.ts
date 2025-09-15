@@ -1,6 +1,6 @@
 import { Server } from "socket.io";
-import UserModel from "@/src/models/user.model";
-import messageModel from "@/src/models/message.model";
+import UserModel from "../../../src/models/user.model";
+import messageModel from "../../../src/models/message.model";
 import { AuthenticatedSocket, LeanMessage } from "../../type";
 import { getConversationId } from "../utils/conversation";
 

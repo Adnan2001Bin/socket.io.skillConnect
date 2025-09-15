@@ -1,7 +1,7 @@
-import OrderModel from "@/src/models/order.model";
-import ProjectModel from "@/src/models/projects.model";
-import UserModel from "@/src/models/user.model";
-import ProposalModel from "@/src/models/proposal.model";
+import OrderModel from "../../../models/order.model";
+import ProjectModel from "../../../models/projects.model";
+import UserModel from "../../../models/user.model";
+import ProposalModel from "../../../models/proposal.model";
 import { DashboardData } from "../../../type";
 
 export const getDashboardData = async (timeRange: string): Promise<DashboardData> => {

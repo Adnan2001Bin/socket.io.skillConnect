@@ -4,8 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setupMessagingHandlers = void 0;
-const user_model_1 = __importDefault(require("@/src/models/user.model"));
-const message_model_1 = __importDefault(require("@/src/models/message.model"));
+const user_model_1 = __importDefault(require("../../../src/models/user.model"));
+const message_model_1 = __importDefault(require("../../../src/models/message.model"));
 const conversation_1 = require("../utils/conversation");
 const setupMessagingHandlers = (io, socket) => {
     socket.on("sendMessage", async ({ receiverId, content }) => {
