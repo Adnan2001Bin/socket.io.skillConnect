@@ -21,6 +21,8 @@ const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
   ? process.env.NEXT_PUBLIC_APP_URL.split(",")
   : ["http://localhost:3000", "https://skillconnect-one.vercel.app"];
 
+  console.log("Allowed origins:", allowedOrigins);
+
 const io = new Server(server, {
   cors: {
     origin: allowedOrigins,
