@@ -12,27 +12,14 @@ import MessageModel from "./src/models/message.model";
 import NotificationModel from "./src/models/notification.model";
 import { LeanMessage } from "./src/type";
 import UserModel from "./src/models/user.model";
-import express from "express"
 
 dotenv.config();
 
 const PORT = process.env.SOCKET_PORT || 4000;
-
-// Create Express app for health checks
-const app = express();
-app.use(express.json());
-app.get("/health", (req, res) => {
-  res.status(200).json({ 
-    status: "OK", 
-    timestamp: new Date().toISOString(),
-    service: "Socket.IO Server"
-  });
-});
-
-const server = http.createServer(app);
+const server = http.createServer();
 const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
   ? process.env.NEXT_PUBLIC_APP_URL.split(",")
-  : ["http://localhost:3000", "https://skillconnect-one.vercel.app" ];
+  : ["http://localhost:3000", "https://skillconnect-one.vercel.app"];
 
 const io = new Server(server, {
   cors: {
