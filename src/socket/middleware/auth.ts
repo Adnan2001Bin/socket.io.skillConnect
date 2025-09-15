@@ -1,5 +1,5 @@
-import UserModel from "@/src/models/user.model";
-import { AuthenticatedSocket } from "@/src/type";
+import UserModel from "../../models/user.model";
+import { AuthenticatedSocket } from "../../../src/type";
 
 
 export const authMiddleware = async (socket: AuthenticatedSocket, next: (err?: Error) => void) => {
