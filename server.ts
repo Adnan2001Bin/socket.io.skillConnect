@@ -15,7 +15,7 @@ import UserModel from "./src/models/user.model";
 
 dotenv.config();
 
-const PORT = process.env.SOCKET_PORT || 4000;
+const PORT = process.env.PORT || 4000;
 const server = http.createServer();
 const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
   ? process.env.NEXT_PUBLIC_APP_URL.split(",")

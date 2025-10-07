@@ -17,7 +17,7 @@ const message_model_1 = __importDefault(require("./src/models/message.model"));
 const notification_model_1 = __importDefault(require("./src/models/notification.model"));
 const user_model_1 = __importDefault(require("./src/models/user.model"));
 dotenv_1.default.config();
-const PORT = process.env.SOCKET_PORT || 4000;
+const PORT = process.env.PORT || 4000;
 const server = http_1.default.createServer();
 const allowedOrigins = process.env.NEXT_PUBLIC_APP_URL
     ? process.env.NEXT_PUBLIC_APP_URL.split(",")
